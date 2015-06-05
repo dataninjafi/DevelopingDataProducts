@@ -1,12 +1,22 @@
 library(shiny)
+library(shinydashboard)
 
-shinyUI(fluidPage(
-    # Application title
-    titlePanel("Kevan datavisualisaattori"),
+ui <- dashboardPage(
+    dashboardHeader(title = "Datavisualisaattori"),
+    dashboardSidebar(
+        menuItem("Sairauspoissaolot", 
+                 tabName = "sairauspoissaolot", 
+                 icon = icon("heart")),
+        menuItem("Työkyvyttömyyseläkkeet", 
+                 tabName = "tkElake", 
+                 icon = icon("wheelchair")),
+        menuItem("Työtapaturmat", 
+                 tabName = "tapaturmat", 
+                 icon = icon("frow-o")),
+        menuItem("Työterveyshuolto", 
+                 tabName = "tth", 
+                 icon = icon("stetoscope"))
+    ),
+    dashboardBody("Tähän kuvio")
+)
     
-    #Sidebar
-    sidebarLayout(
-        sidebarPanel("Tähän tulee valintapaneeli"),
-        mainPanel("Tähän tulee kuvio")
-    )
-))
