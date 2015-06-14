@@ -1,28 +1,47 @@
 library(shiny)
-library(rCharts)
 library(dygraphs)
 library(dplyr)
-library(DT)
+library(shinydashboard)
 lungDeaths <- cbind(mdeaths, fdeaths)
+male <- mdeaths
+female <- fdeaths
+population <- ldeaths
 
 shinyServer(
     function(input,output) {
-        output$aikasarja <- renderDygraph({
-            cbind(mdeaths, fdeaths) %>% 
-            dygraph() %>% 
-            dyRangeSelector()
+        output$timeseries <- renderDygraph({
+            get(input$gender) %>% 
+                decompose %>%
+                .[[input$method]] %>% {
+                    if (input$gender=="lungDeaths" & input$method!="seasonal") {
+                        colnames(.) <- c("male","female") 
+                    } 
+                    .
+                } %>% 
+                dygraph %>% 
+                dyRangeSelector
         })
+#         output$timeseries <- renderDygraph({
+#             get(input$gender) %>% 
+#                 decompose %>%
+#                 .[input$method] %>% {
+#                     if (input$gender=="lungDeaths") names(.) <- c("mdeaths","fdeaths")
+#                     .
+#                 } 
+#                 dygraph %>%
+#                 dyRangeSelector
+#         })
+#         output$progressBox <- renderInfoBox({
+#             infobox(
+#                 "Progress", paste(input$gender, input$method), icon = icon("list"),
+#                 color = "purple", fill = TRUE
+#             )
+#         })
+#         
+#         output$oid1 <- renderPrint({input$method})
+#         
+
         
-        output$iris <- DT::renderDataTable(iris, filter = 'top', options = list(lengthChange = FALSE))
         
-        output$myChart <- renderChart2({
-             r1 <- rPlot(mpg ~ wt | am + vs, data = mtcars, type = "point", color = "gear")
-         })
-        
-        output$myChart2 <- renderChart2({
-            as.data.frame(HairEyeColor) %>% 
-            filter(Sex == "Male") %>%
-            nPlot(Freq ~ Hair, group = "Eye", data = ., type = "multiBarHorizontalChart")
-        })    
     }
 )

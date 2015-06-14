@@ -1,81 +1,43 @@
 library(shiny)
 library(shinydashboard)
 library(dygraphs)
-library(rCharts)
 
 ui <- dashboardPage(
-    dashboardHeader(title = "Datavisualisaattori"),
+    dashboardHeader(title = "Time Series Visualiser"),
     dashboardSidebar(
         sidebarMenu(
-            menuItem("Sairauspoissaolot", 
-                 tabName = "sairauspoissaolot", 
-                 icon = icon("heart-o")),
-            menuItem("Työkyvyttömyyseläkkeet", 
-                 tabName = "tkElake", 
-                 icon = icon("wheelchair")),
-            menuItem("Työtapaturmat", 
-                 tabName = "tapaturmat", 
-                 icon = icon("flash")),
-            menuItem("Työterveyshuolto", 
-                 tabName = "tth", 
-                 icon = icon("stethoscope")),
-            menuItem("Vakuutetut", 
-                     tabName = "vakuutetut", 
-                     icon = icon("user")),
-            menuItem("Eläkeratkaisutoiminta", 
-                     tabName = "ratkaisutoiminta", 
-                     icon = icon("bar-chart")),
-            menuItem("Tutkimukset", 
-                     tabName = "tutkimukset", 
-                     icon = icon("graduation-cap")),
-            menuItem("Asiakastyytyväisyys ", 
-                     tabName = "asty", 
-                     icon = icon("smile-o")),
-            menuItem("Rahoitus", 
-                     tabName = "rahoitus", 
-                     icon = icon("euro")),
-            menuItem("Ostolaskut", 
-                     tabName = "ostolaskut", 
-                     icon = icon("credit-card")),
-            menuItem("Keva organisaationa", 
-                     tabName = "keva", 
-                     icon = icon("institution"))
+            menuItem("Documentation", 
+                     tabName = "documentation", 
+                     icon = icon("book")),
+            menuItem("Time Series Visualiser", 
+                 tabName = "timeseries", 
+                 icon = icon("heart-o"))
         )
     ),
     dashboardBody(
         tabItems(
-            tabItem(tabName = "sairauspoissaolot",
-                    fluidPage("Aikasarja",dygraphOutput("aikasarja"))
+
+            tabItem(tabName = "documentation",
+                    fluidPage(includeMarkdown("documentation.md"))
+            ),
+            tabItem(tabName = "timeseries",
+                    fluidRow(
+                      box(selectInput("gender","Choose a data set:",
+                                      c("UK population" = "population",
+                                        "UK population, females" = "female",
+                                        "UK population, males" = "male",
+                                        "UK population, both genders" = "lungDeaths"))
+                      ),
+                      box(selectInput("method","Choose explore method",
+                                      c("Observed deaths" = "x",
+                                        "Seasonal fluctuation in deaths" = "seasonal",
+                                        "Trend in deaths" = "trend",
+                                        "Randomness in deaths" = "random"))
+                      )
                     ),
-             tabItem(tabName = "tkElake", 
-                     fluidPage("Ristiintaulukoitu",showOutput("myChart", "polycharts"))
-              ),
-             tabItem(tabName = "tapaturmat",
-                     fluidPage(showOutput("myChart2", "nvd3"))
-             ),
-            tabItem(tabName = "tth",
-                    tags$iframe(src = "http://rpubs.com/welxo88/kela_tth_IvsIIsuhde", seamless=NA, width=1200, height=800)
-            ),
-            tabItem(tabName = "vakuutetut",
-                    fluidPage("Taulukko", DT::dataTableOutput("iris"))
-            ),
-            tabItem(tabName = "ratkaisutoiminta",
-                    "Tähän eläkeratkaisutilastoja"
-                    ),
-            tabItem(tabName = "tutkimukset",
-                    "Tähän tutkimusvisualisointeja"
-            ),
-            tabItem(tabName = "asty",
-                    "Tähän asty-visualisointeja"
-            ),
-            tabItem(tabName = "rahoitus",
-                    "Tähän rahoitusvisualisointeja"
-            ),
-            tabItem(tabName = "ostolaskut",
-                    "Tähän ostolaskuvisualisointeja"
-            ),
-            tabItem(tabName = "keva",
-                    "Tieto kevasta"
+                    fluidPage("Monthly Deaths from Lung Diseases in the UK" , 
+                              dygraphOutput("timeseries"))
+                              #verbatimTextOutput("timeseries"))
             )
         )
     )
