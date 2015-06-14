@@ -19,7 +19,7 @@ In addition to the Coursera's course material when learning Shiny I recommend Rs
 
 [Here](http://sneik-.github.io/hiekkalaatikko/testi.html#/) is a slide presentation about the app. It was part of the course work. 
 
-Android users! I noticed that some android devices (Samsung s3, s5 and some Android tablet) have a problem resolving DNS address of the slide presentation, even with different browsers. This a most likely a Android related bug: Android OS can't handle the presentation url with dash in it. While this bug is unsolved you can only open the presentation with a other OS than Android.
+Android users! I noticed that Android devices (tested with Samsung galaxy s3, s5 and some Android tablet) have a problem resolving DNS address of the slide presentation, even with different browsers. This a most likely a Android related bug: Android OS can't handle the presentation url with dash in it (4 other OS had no problems). While this bug is unsolved you can only open the presentation with a other OS than Android.
  
 **Data**
 
@@ -29,9 +29,9 @@ Data holds three time series data sets giving the monthly deaths from bronchitis
 
 You can access the app by clicking "Time Series Visualiser" at the sidebar menu.
 
-You can explore total data set (ldeaths) or gender wise datasets either simultaneously or individually in the graph. 
+You can explore population data set (ldeaths) or gender wise datasets either simultaneously or individually in the graph. 
 
-Time series data is viewable as such, but can also view the data 
-by its decomposed components: seasonal fluctuation, trend and irregular fluctuation. See more information about [decompose function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/decompose.html)
+Observed deaths time series is viewable as such, but one can also view the data 
+from perspective of decomposed components: seasonal fluctuation, trend and irregular fluctuation that are built on moving averages. See more information about [decompose function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/decompose.html)
 
 There is a sliders below the graph which allows you to subset visualisation's start and end points. 
