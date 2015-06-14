@@ -1,6 +1,7 @@
 library(shiny)
 library(shinydashboard)
 library(dygraphs)
+library(markdown)
 
 ui <- dashboardPage(
     dashboardHeader(title = "Time Series Visualiser"),

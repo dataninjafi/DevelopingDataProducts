@@ -2,6 +2,7 @@ library(shiny)
 library(dygraphs)
 library(dplyr)
 library(shinydashboard)
+library(markdown)
 lungDeaths <- cbind(mdeaths, fdeaths)
 male <- mdeaths
 female <- fdeaths
