@@ -29,9 +29,9 @@ Data holds three time series data sets giving the monthly deaths from bronchitis
 
 You can access the app by clicking "Time Series Visualiser" at the sidebar menu.
 
-You can explore population data set (ldeaths) or gender wise datasets either simultaneously or individually in the graph. 
+Under the "Choose a data set:" you find a list of different datasets. You can explore population data set (ldeaths) or gender wise datasets. 
 
-Observed deaths time series is viewable as such, but one can also view the data 
-from perspective of decomposed components: seasonal fluctuation, trend and irregular fluctuation that are built on moving averages. See more information about [decompose function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/decompose.html)
+Under the "Explore data" you find a list of results of decomposed time series analysis: . Observed deaths time series is viewable as such, but one can also view the data 
+from perspective of decomposed components: seasonal fluctuation, trend and irregular fluctuation. See more information about [decompose function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/decompose.html)
 
-There is a sliders below the graph which allows you to subset visualisation's start and end points. 
+Sliders below the graph allows you to set timespan. 
