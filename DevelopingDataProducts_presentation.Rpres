@@ -1,6 +1,6 @@
 Time Series Visualiser
 ========================================================
-date: 16th June 2015
+date: 18th June 2015
 author: Risto Kaartinen 
 transition: rotate
 
@@ -27,10 +27,10 @@ Time Series Visualiser app
 
 - Choose a data set: Options are population, female, male and both genders.
 
-- Explore data: analyse the data with the decompose function and view results 
+- Explore data: Analyse the data with the decompose function and view the results 
 by observed deaths, seasonal fluctuations, trend or randomness in deaths. 
 
-- Sliders below the graph change the timespan.
+- Adjust the sliders below the graph to change the timespan.
 
 Data 
 ========================================================
@@ -42,7 +42,7 @@ Packages and the decompose function
 ========================================================
 
 <small>App is build with shiny and shinydashboard packages (UI), dplyr package (data manipulation), dygraph package (visualisation). Time series data is calculated 
-with decompose function, see example below.</small>
+with decompose function, see the example below.</small>
 
 ```{r echo=FALSE}
 library(dygraphs)
@@ -60,8 +60,8 @@ Detailed implementation information
 - [Shiny dashboard video](https://vimeo.com/125265016)
 - [decompose function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/decompose.html)
 - [How to change R Presentation default styles](https://landeco2point0.wordpress.com/2013/11/07/r-studio-and-presentations-and-git-oh-my/)
-    - There should be a svg logo on the top left corner. Seems that my 
-    implementation don't work with Internet Explorer. I will gladly adopt any ideas [here]().  
+    - There should be a svg logo on the top left corner, but Internet Explorer doesn't show it. 
+    I will gladly adopt any ideas [here](https://github.com/sneik-/DevelopingDataProducts/blob/master/DevelopingDataProducts_presentation.Rpres) to solve the problem. 
 - [Icons on the first slide of this presentation](http://codepen.io/ruandre/pen/howFi)
 
 
@@ -88,66 +88,5 @@ background-image:
 .reveal .slideContent h3{
    left: 0%;}
    
-.soc {
-  display: block
-  font-size: 0
-  list-style: none
-  margin: 0
-  padding: 32px // IE8
-  padding: 3.2rem
-  text-align: center
-  li
-    display: inline-block
-    margin: 12px // IE8
-    margin: 1.2rem
-  a, svg
-    display: block
-  a
-    position: relative // IE8
-    height: 96px // IE8
-    height: 9.6rem
-    width: 96px // IE8
-    width: 9.6rem
-  svg
-    height: 100%
-    width: 100%
-  // IE8:
-  em
-    font-size: 14px
-    line-height: 1.5
-    margin-top: -.75em
-    position: absolute
-    text-align: center
-    top: 50%
-    right: 0
-    bottom: 0
-    left: 0
-}
-$background: hsl(210, 45, 10)
 
-html
-  box-sizing: border-box
-
-*, *:before, *:after
-  box-sizing: inherit
-  
-html
-  background: $background
-  font-size: .625em // 10px for rems
-
-%social-icon-hover
-  border-radius: 100%
-  color: $background // IE8
-  fill: $background
-  transform: scale(1.25)
-  transition: background-color .5s, transform .5s ease-out
-
-// Neat color trick, <3 Sass
-@for $i from 1 through 29
-  .icon-#{$i}
-    color: hsl($i * 12, 70, 50) // IE8
-    fill: hsl($i * 12, 70, 50)
-    &:hover
-      background: hsl($i * 12, 70, 50)
-      @extend %social-icon-hover
 </style>
