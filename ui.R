@@ -29,7 +29,7 @@ ui <- dashboardPage(
                                         "UK population, males" = "male",
                                         "UK population, both genders" = "lungDeaths"))
                       ),
-                      box(selectInput("method","Choose explore method",
+                      box(selectInput("method","Explore data:",
                                       c("Observed deaths" = "x",
                                         "Seasonal fluctuation in deaths" = "seasonal",
                                         "Trend in deaths" = "trend",
