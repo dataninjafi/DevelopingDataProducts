@@ -61,7 +61,7 @@ Detailed implementation information
 - [decompose function](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/decompose.html)
 - [How to change R Presentation default styles](https://landeco2point0.wordpress.com/2013/11/07/r-studio-and-presentations-and-git-oh-my/)
     - There should be a svg logo on the top left corner, but Internet Explorer doesn't show it. 
-    I will gladly adopt any ideas [here](https://github.com/sneik-/DevelopingDataProducts/blob/master/DevelopingDataProducts_presentation.Rpres) to solve the problem. 
+    I will gladly adopt any ideas <a href="https://github.com/sneik-/DevelopingDataProducts/blob/master/DevelopingDataProducts_presentation.Rpres" target="_blank">here</a> to solve the problem. 
 - [Icons on the first slide of this presentation](http://codepen.io/ruandre/pen/howFi)
 
 
